@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSK 1-3 Flashcards</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="app">
+  <div class="row spread">
+    <h1>📇 HSK 1–3 Flashcards</h1>
+    <div class="row"><select id="fontSel" aria-label="Chinese font" title="Chinese font"><option value="song">宋体 Song (HSK style)</option><option value="hei">黑体 Sans</option><option value="kai">楷体 Kai</option></select>
+    <select id="level" aria-label="Level">
+      <option value="1">HSK 1 · 154 words</option>
+      <option value="2">HSK 2 · 147 new words</option>
+      <option value="3">HSK 3 · 303 new words</option>
+      <option value="all">All levels · 604 words</option>
+    </select></div>
+  </div>
+
+  <div class="tabs">
+    <button data-tab="study" class="on">Study</button>
+    <button data-tab="quiz">Quiz</button>
+    <button data-tab="list">Word list</button>
+    <button data-tab="chars">Characters</button>
+  </div>
+
+  <!-- STUDY -->
+  <section class="panel on" id="tab-study">
+    <div class="row">
+      <select id="catStudy"></select>
+      <select id="lessonStudy" class="lsel"></select>
+      <label class="small"><input type="checkbox" id="showPy" checked> sentence pinyin</label>
+      <button id="resetBtn" class="small">Reset progress</button>
+    </div>
+    <div class="stats">
+      <div id="statText"></div>
+      <div class="bar"><i class="m" id="barM"></i><i class="l" id="barL"></i></div>
+    </div>
+    <div id="studyArea"></div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="panel" id="tab-quiz">
+    <div class="row">
+      <select id="catQuiz"></select>
+      <select id="lessonQuiz" class="lsel"></select>
+      <select id="quizType">
+        <option value="mixed">Mixed</option>
+        <option value="h2e">Hanzi → English</option>
+        <option value="e2h">English → Hanzi</option>
+        <option value="h2p">Hanzi → Pinyin</option>
+        <option value="p2h">Pinyin → Hanzi</option>
+        <option value="listen">Listening → English</option>
+      </select>
+      <select id="quizLen">
+        <option value="10">10 questions</option>
+        <option value="20" selected>20 questions</option>
+        <option value="40">40 questions</option>
+        <option value="0">All words</option>
+      </select>
+      <button id="quizStart" class="btn good" style="padding:8px 14px">Start</button>
+    </div>
+    <div id="quizArea"><div class="msg"><div>Pick a mix and press <b>Start</b>. Wrong answers go back into your study queue.</div></div></div>
+  </section>
+
+  <!-- LIST -->
+  <section class="panel" id="tab-list">
+    <div class="row"><input type="text" id="search" placeholder="Search hanzi, pinyin or English" style="flex:1"></div>
+    <div class="small">● grey = new &nbsp; <span style="color:var(--primary)">●</span> learning &nbsp; <span style="color:var(--good)">●</span> mastered</div>
+    <table><tbody id="listBody"></tbody></table>
+  </section>
+
+  <!-- CHARACTERS -->
+  <section class="panel" id="tab-chars">
+    <div class="small">Characters that appear in 2 or more HSK 1–3 words. Learn the character once, then see every word it unlocks. Tap any character inside a word to jump to it.</div>
+    <div class="row">
+      <input type="text" id="chSearch" placeholder="Search character, pinyin or meaning" style="flex:1;min-width:150px">
+      <select id="chLevel"><option value="0">First seen: any level</option><option value="1">First seen in HSK 1</option><option value="2">First seen in HSK 2</option><option value="3">First seen in HSK 3</option></select>
+      <select id="chSort"><option value="count">Most words first</option><option value="level">Earliest level first</option></select>
+      <label class="small"><input type="checkbox" id="chHide"> hide learned</label>
+    </div>
+    <div class="stats" id="chStat"></div>
+    <div id="chDetail"></div>
+    <div class="chgrid" id="chGrid"></div>
+  </section>
+
+  <div class="note" id="voiceNote"></div>
+</div>
+
+<!-- Plain scripts (no modules) so the app works by double-clicking this file. Order matters: data, then logic, then main. -->
+<script src="js/data/hsk1.js"></script>
+<script src="js/data/hsk2.js"></script>
+<script src="js/data/hsk3.js"></script>
+<script src="js/data/books.js"></script>
+<script src="js/data/char-glosses.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/state.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/study.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/wordlist.js"></script>
+<script src="js/characters.js"></script>
+<script src="js/font.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

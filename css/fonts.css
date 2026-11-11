@@ -1,0 +1,7 @@
+/* Chinese text uses a font family chosen to look like the HSK test (Song/SimSun by default); only CJK characters use it, so pinyin stays sans-serif. */
+@font-face{font-family:"HSKSong";src:local("SimSun"),local("宋体"),local("NSimSun"),local("Songti SC"),local("STSong"),local("Noto Serif CJK SC"),local("Noto Serif SC"),local("Source Han Serif SC"),local("Source Han Serif CN");unicode-range:U+2E80-2FDF,U+3000-303F,U+31C0-31EF,U+3400-4DBF,U+4E00-9FFF,U+F900-FAFF,U+FF00-FFEF}
+@font-face{font-family:"HSKHei";src:local("Microsoft YaHei"),local("微软雅黑"),local("SimHei"),local("PingFang SC"),local("Noto Sans CJK SC"),local("Noto Sans SC"),local("Source Han Sans SC");unicode-range:U+2E80-2FDF,U+3000-303F,U+31C0-31EF,U+3400-4DBF,U+4E00-9FFF,U+F900-FAFF,U+FF00-FFEF}
+@font-face{font-family:"HSKKai";src:local("KaiTi"),local("楷体"),local("KaiTi_GB2312"),local("Kaiti SC"),local("STKaiti"),local("AR PL UKai CN"),local("LXGW WenKai");unicode-range:U+2E80-2FDF,U+3000-303F,U+31C0-31EF,U+3400-4DBF,U+4E00-9FFF,U+F900-FAFF,U+FF00-FFEF}
+:root{--zh:"HSKSong"}
+html[data-font="hei"]{--zh:"HSKHei"}
+html[data-font="kai"]{--zh:"HSKKai"}
